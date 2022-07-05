@@ -1,0 +1,13 @@
+<prog main> 
+const int n, var carac t, const bolean t;
+<!-- iiubeeifiweiucbiucbweiviuwkjfgewigfiu´wgefpuigeriufg43iupgriuf43iug -->
+<se> </se>
+&& ||
+<senao> </senao>
+dhjshsjhd
+<entao> </entao>
+true false
+>=
+!=
+/
+</prog>
