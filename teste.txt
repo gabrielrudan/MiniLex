@@ -1,10 +1,11 @@
 <prog main> 
-const int n, var carac t, const bolean t;
+const int n, var carac y, const bolean y;
 <!-- iiubeeifiweiucbiucbweiviuwkjfgewigfiu´wgefpuigeriufg43iupgriuf43iug -->
-<se> </se>
+<se> y == 23 </se>
 && ||
+12
 <senao> </senao>
-dhjshsjhd
+dhjs102_hsjhd
 <entao> </entao>
 true false
 >=

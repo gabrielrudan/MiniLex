@@ -65,7 +65,7 @@ public class Analisador {
     }
     
     private boolean isDigito(char c){
-        return c>=0 && c<=9;
+        return c>='0' && c<='9';
     }
     
     public Token capturaToken() throws IOException {
@@ -549,6 +549,18 @@ public class Analisador {
                                lexema += id;
                                token = new Token(TipoToken.NOMEVAR, id, numeroLinha);
                                posicaoLinha --;
+                            }
+                            if(isDigito(c)){
+                                String numero = "";
+                                numero += c;
+                                c = getChar();
+                                while (isDigito(c)){
+                                    numero += c;
+                                    c = getChar();
+                                }
+                                lexema += numero;
+                                token = new Token(TipoToken.VALDIGITO, numero, numeroLinha);
+                                posicaoLinha--;
                             }
                             if (c == 0) {
                                 token = new Token(TipoToken.EOF, "Erro final do arquivo", numeroLinha);
