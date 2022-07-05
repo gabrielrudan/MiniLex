@@ -1,8 +1,8 @@
 <prog main> 
-const int inteiro, var carac y, const bolean y;
+const int y, var carac y, const bolean y;
 int
 variavel
-i
+bolean
 <!-- iiubeeifiweiucbiucbweiviuwkjfgewigfiu´wgefpuigeriufg43iupgriuf43iug -->
 <se> y == 23 </se>
 && ||

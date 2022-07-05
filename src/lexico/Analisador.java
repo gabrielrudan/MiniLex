@@ -488,14 +488,42 @@ public class Analisador {
                             if(proximoChar('l')){
                                 if(proximoChar('u')){
                                     if(proximoChar('t')){
-                                        token = new Token(TipoToken.TIPOVAR, "flut", numeroLinha);
+                                        c = getChar();
+                                        if(Simbolos.verificaSimbolo(c)){
+                                            token = new Token(TipoToken.TIPOVAR, "flut", numeroLinha);
+                                            posicaoLinha--;
+                                        }else{
+                                            posicaoLinha -=5;
+                                            c = getChar();
+                                            if(isChar(c)){
+                                                lexema = "";
+                                                lexema += verificaVar(c);
+                                                token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                            }else{
+                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                            }
+                                        }
                                     }else{
-                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                        posicaoLinha --;
+                                        posicaoLinha -= 4;
+                                        c = getChar();
+                                        if(isChar(c)){
+                                            lexema = "";
+                                            lexema += verificaVar(c);
+                                            token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                        }else{
+                                            token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                        }
                                     }
                                 }else{
-                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                    posicaoLinha--;
+                                    posicaoLinha -= 3;
+                                    c = getChar();
+                                    if(isChar(c)){
+                                        lexema = "";
+                                        lexema += verificaVar(c);
+                                        token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                    }else{
+                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                    }
                                 }
                             }else{
                                 posicaoLinha --;
@@ -503,21 +531,48 @@ public class Analisador {
                                     if(proximoChar('l')){
                                         if(proximoChar('s')){
                                             if(proximoChar('e')){
-                                                token = new Token(TipoToken.VALFALSE, "false", numeroLinha);
+                                                c = getChar();
+                                                if(Simbolos.verificaSimbolo(c)){
+                                                    token = new Token(TipoToken.VALFALSE, "false", numeroLinha);
+                                                    posicaoLinha--;
+                                                }else{
+                                                    posicaoLinha -=6;
+                                                    c = getChar();
+                                                    if(isChar(c)){
+                                                        lexema = "";
+                                                        lexema += verificaVar(c);
+                                                        token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                                    }else{
+                                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                                    }
+                                                }
                                             }else{
-                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                                posicaoLinha--;
+                                                posicaoLinha -= 5;
+                                                c = getChar();
+                                                if(isChar(c)){
+                                                    lexema = "";
+                                                    lexema += verificaVar(c);
+                                                    token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                                }else{
+                                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                                }
                                             }
                                         }else{
-                                            token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                            posicaoLinha--;
+                                            posicaoLinha -= 4;
+                                            c = getChar();
+                                            if(isChar(c)){
+                                                lexema = "";
+                                                lexema += verificaVar(c);
+                                                token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                            }else{
+                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                            }
                                         }
                                     }else{
-                                        posicaoLinha --;
+                                        posicaoLinha -= 3;
                                         c = getChar();
                                         if(isChar(c)){
                                             lexema = "";
-                                            lexema += "fa";
                                             lexema += verificaVar(c);
                                             token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
                                         }else{
@@ -542,18 +597,53 @@ public class Analisador {
                                 if(proximoChar('r')){
                                     if(proximoChar('a')){
                                         if(proximoChar('c')){
-                                            token = new Token(TipoToken.TIPOVAR, "carac", numeroLinha);
+                                            c = getChar();
+                                            if(Simbolos.verificaSimbolo(c)){
+                                                token = new Token(TipoToken.TIPOVAR, "carac", numeroLinha);
+                                                posicaoLinha--;
+                                            }else{
+                                                posicaoLinha -=6;
+                                                c = getChar();
+                                                if(isChar(c)){
+                                                    lexema = "";
+                                                    lexema += verificaVar(c);
+                                                    token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                                }else{
+                                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                                }
+                                            }
                                         }else{
-                                            token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                            posicaoLinha --;
+                                            posicaoLinha -= 5;
+                                            c = getChar();
+                                            if(isChar(c)){
+                                                lexema = "";
+                                                lexema += verificaVar(c);
+                                                token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                            }else{
+                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                            }
                                         }
                                     }else{
-                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                        posicaoLinha --;
+                                        posicaoLinha -= 4;
+                                        c = getChar();
+                                        if(isChar(c)){
+                                            lexema = "";
+                                            lexema += verificaVar(c);
+                                            token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                        }else{
+                                            token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                        }
                                     }
                                 }else{
-                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                    posicaoLinha --;
+                                    posicaoLinha -= 3;
+                                    c = getChar();
+                                    if(isChar(c)){
+                                        lexema = "";
+                                        lexema += verificaVar(c);
+                                        token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                    }else{
+                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                    }
                                 }
                             }else{
                                 posicaoLinha --;
@@ -561,22 +651,64 @@ public class Analisador {
                                     if(proximoChar('n')){
                                         if(proximoChar('s')){
                                             if(proximoChar('t')){
-                                                token = new Token(TipoToken.DECLARACAOCONSTINI, "const", numeroLinha);
+                                                c = getChar();
+                                                if(Simbolos.verificaSimbolo(c)){
+                                                    token = new Token(TipoToken.DECLARACAOCONSTINI, "const", numeroLinha);
+                                                    posicaoLinha--;
+                                                }else{
+                                                    posicaoLinha -=6;
+                                                    c = getChar();
+                                                    if(isChar(c)){
+                                                        lexema = "";
+                                                        lexema += verificaVar(c);
+                                                        token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                                    }else{
+                                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                                    }
+                                                }
                                             }else{
-                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                                posicaoLinha--;
+                                                posicaoLinha -= 5;
+                                                c = getChar();
+                                                if(isChar(c)){
+                                                    lexema = "";
+                                                    lexema += verificaVar(c);
+                                                    token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                                }else{
+                                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                                }
                                             }
                                         }else{
-                                            token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                            posicaoLinha--;
+                                            posicaoLinha -= 4;
+                                            c = getChar();
+                                            if(isChar(c)){
+                                                lexema = "";
+                                                lexema += verificaVar(c);
+                                                token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                            }else{
+                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                            }
                                         }
                                     }else{
-                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                        posicaoLinha--;
+                                        posicaoLinha -= 3;
+                                        c = getChar();
+                                        if(isChar(c)){
+                                            lexema = "";
+                                            lexema += verificaVar(c);
+                                            token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                        }else{
+                                            token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                        }
                                     }
                                 }else{
-                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                    posicaoLinha--;
+                                    posicaoLinha -= 2;
+                                    c = getChar();
+                                    if(isChar(c)){
+                                        lexema = "";
+                                        lexema += verificaVar(c);
+                                        token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                    }else{
+                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                    }
                                 }
                             }
                         break;
@@ -584,18 +716,53 @@ public class Analisador {
                             if(proximoChar('r')){
                                 if(proximoChar('u')){
                                     if(proximoChar('e')){
-                                        token = new Token(TipoToken.VALTRUE, "true", numeroLinha);
+                                        c = getChar();
+                                        if(Simbolos.verificaSimbolo(c)){
+                                            token = new Token(TipoToken.VALTRUE, "true", numeroLinha);
+                                            posicaoLinha--;
+                                        }else{
+                                            posicaoLinha -=5;
+                                            c = getChar();
+                                            if(isChar(c)){
+                                                lexema = "";
+                                                lexema += verificaVar(c);
+                                                token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                            }else{
+                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                            }
+                                        }
                                     }else{
-                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                        posicaoLinha--;
+                                        posicaoLinha -= 4;
+                                        c = getChar();
+                                        if(isChar(c)){
+                                            lexema = "";
+                                            lexema += verificaVar(c);
+                                            token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                        }else{
+                                            token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                        }
                                     }
                                 }else{
-                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                    posicaoLinha--;
+                                    posicaoLinha -= 3;
+                                    c = getChar();
+                                    if(isChar(c)){
+                                        lexema = "";
+                                        lexema += verificaVar(c);
+                                        token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                    }else{
+                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                    }
                                 }
                             }else{
-                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                posicaoLinha--;
+                                posicaoLinha -= 2;
+                                c = getChar();
+                                if(isChar(c)){
+                                    lexema = "";
+                                    lexema += verificaVar(c);
+                                    token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                }else{
+                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                }
                             }
                         break;
                         case 'b':
@@ -604,26 +771,75 @@ public class Analisador {
                                     if(proximoChar('e')){
                                         if(proximoChar('a')){
                                             if(proximoChar('n')){
-                                                token = new Token(TipoToken.TIPOVAR, "bolean", numeroLinha);
+                                                c = getChar();
+                                                if(Simbolos.verificaSimbolo(c)){
+                                                    token = new Token(TipoToken.TIPOVAR, "bolean", numeroLinha);
+                                                    posicaoLinha--;
+                                                }else{
+                                                    posicaoLinha -=7;
+                                                    c = getChar();
+                                                    if(isChar(c)){
+                                                        lexema = "";
+                                                        lexema += verificaVar(c);
+                                                        token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                                    }else{
+                                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                                    }
+                                                }
                                             }else{
-                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                                posicaoLinha --;
+                                                posicaoLinha -= 6;
+                                                c = getChar();
+                                                if(isChar(c)){
+                                                    lexema = "";
+                                                    lexema += verificaVar(c);
+                                                    token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                                }else{
+                                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                                }
                                             }
                                         }else{
-                                            token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                            posicaoLinha --;
+                                            posicaoLinha -= 5;
+                                            c = getChar();
+                                            if(isChar(c)){
+                                                lexema = "";
+                                                lexema += verificaVar(c);
+                                                token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                            }else{
+                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                            }
                                         }
                                     }else{
-                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                        posicaoLinha --;
+                                        posicaoLinha -= 4;
+                                        c = getChar();
+                                        if(isChar(c)){
+                                            lexema = "";
+                                            lexema += verificaVar(c);
+                                            token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                        }else{
+                                            token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                        }
                                     }
                                 }else{
-                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                    posicaoLinha --;
+                                    posicaoLinha -= 3;
+                                    c = getChar();
+                                    if(isChar(c)){
+                                        lexema = "";
+                                        lexema += verificaVar(c);
+                                        token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                    }else{
+                                        token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                    }
                                 }
                             }else{
-                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-                                posicaoLinha --;
+                                posicaoLinha -= 2;
+                                c = getChar();
+                                if(isChar(c)){
+                                    lexema = "";
+                                    lexema += verificaVar(c);
+                                    token = new Token(TipoToken.NOMEVAR, lexema, numeroLinha);
+                                }else{
+                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                }
                             }
                         break;
                         default:
