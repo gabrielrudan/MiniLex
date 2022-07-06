@@ -365,6 +365,12 @@ public class Analisador {
                                 token = new Token(TipoToken.OPIGUAL, "=", numeroLinha);
                             }
                         break;
+                        case '(':
+                            token = new Token(TipoToken.ABREPAREN, "(", numeroLinha);
+                        break;
+                        case ')':
+                            token = new Token(TipoToken.FECHAPAREN, ")", numeroLinha);
+                        break;
                         case '!':
                             if(proximoChar('=')){
                                 token = new Token(TipoToken.OPDIFERENTE, "!=", numeroLinha);
