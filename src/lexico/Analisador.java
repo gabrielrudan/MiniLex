@@ -105,28 +105,30 @@ public class Analisador {
                                 case 'p':
                                     if(proximoChar('r')){
                                         if(proximoChar('o')){
-                                            if(proximoChar('g')){
-                                                    token = new Token(TipoToken.PROGRAMAINICIO, "<prog ", numeroLinha);
-                                                    
-//                                                    c = getChar();
-//                                                    if(isChar(c)){
-//                                                        lexema += c;
-//                                                         c = getChar();
-//                                                        while (isChar(c) || isDigito(c) || c == '_') {                                                           
-//                                                           lexema += c;
-//                                                           c = getChar();
-//                                                        }
-//                                                   }
-//                                                   posicaoLinha --;
-//                                                   if(proximoChar('>')){
-//                                                       token = new Token(TipoToken.PROGRAMAINICIO, "<prog "+lexema+">", numeroLinha);
-//                                                       lexema = "";
-//                                                       testaProg = false;
-//                                                   }else{
-//                                                       token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
-//                                                       posicaoLinha --;
-//                                                   }
-                                           }else{
+                                            if(proximoChar('g')){                                        
+                                                if(proximoChar(' ')){
+                                                    c = getChar();
+                                                    if(isChar(c)){
+                                                        lexema += c;
+                                                         c = getChar();
+                                                        while (isChar(c) || isDigito(c) || c == '_') {                                                           
+                                                           lexema += c;
+                                                           c = getChar();
+                                                        }
+                                                    }
+                                                    posicaoLinha --;
+                                                    if(proximoChar('>')){
+                                                       token = new Token(TipoToken.PROGRAMAINICIO, "<prog "+lexema+">", numeroLinha);
+                                                       lexema = "";
+                                                    }else{
+                                                       token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                                       posicaoLinha --;
+                                                    }
+                                                } else{
+                                                    token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
+                                                    posicaoLinha--;
+                                                }
+                                            }else{
                                                token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
                                                posicaoLinha --;
                                            }
