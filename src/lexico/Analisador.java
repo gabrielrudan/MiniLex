@@ -68,6 +68,10 @@ public class Analisador {
         return c>='0' && c<='9';
     }
     
+    private boolean isSpecial(char c){
+        return (c>='!' && c<='/')||(c>=':' && c<='~')||(c>='€' && c<='ý');
+    }
+    
     private String verificaVar(char c){
         String lexAux = "";
         lexAux += c;
@@ -867,6 +871,9 @@ public class Analisador {
                                 lexema += numero;
                                 token = new Token(TipoToken.VALDIGITO, numero, numeroLinha);
                                 posicaoLinha--;
+                            }
+                            if(isSpecial(c)){
+                                //token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
                             }
                             if (c == 0) {
                                 token = new Token(TipoToken.EOF, "Erro final do arquivo", numeroLinha);
