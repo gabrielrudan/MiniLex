@@ -68,6 +68,10 @@ public class Analisador {
         return c>='0' && c<='9';
     }
     
+    private boolean isPonto(char c){
+        return c == '.';
+    }
+    
     private boolean isSpecial(char c){
         return (c>='!' && c<='/')||(c>=':' && c<='~')||(c>='€' && c<='ý');
     }
@@ -397,6 +401,18 @@ public class Analisador {
                             }else {
                                 token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
                                 posicaoLinha --;
+                            }
+                        break;
+                        case '"':
+                            c = getChar();
+                            if(isChar(c) || isDigito(c)){
+                                String carac = "";
+                                carac += c ;
+                                if(proximoChar('"')){
+                                    token = new Token(TipoToken.VALCARAC, '"'+carac+'"', numeroLinha);
+                                }else{
+                                    token = new Token(TipoToken.ERRO, "Tamanho do caractere excedido", numeroLinha);
+                                }
                             }
                         break;
                         case '+':
@@ -861,16 +877,42 @@ public class Analisador {
                                posicaoLinha --;
                             }
                             if(isDigito(c)){
-                                String numero = "";
-                                numero += c;
+                                String inteiro = "";
+                                inteiro += c;
                                 c = getChar();
-                                while (isDigito(c)){
-                                    numero += c;
+                                if(isPonto(c)){
+                                    String real = "";
+                                    real = inteiro + c;
                                     c = getChar();
+                                    while(isDigito(c)){
+                                        real += c;
+                                        c = getChar();
+                                    }
+                                    lexema += real;
+                                    token = new Token(TipoToken.VALREAL, real, numeroLinha);
+                                    posicaoLinha--;
+                                }else{
+                                    while (isDigito(c)){
+                                        inteiro += c;
+                                        c = getChar();
+                                    }
+                                    if(isPonto(c)){
+                                        String real = "";
+                                        real = inteiro + c;
+                                        c = getChar();
+                                        while(isDigito(c)){
+                                            real += c;
+                                            c = getChar();
+                                        }
+                                        lexema += real;
+                                        token = new Token(TipoToken.VALREAL, real, numeroLinha);
+                                        posicaoLinha--;
+                                    }else{
+                                        lexema += inteiro;
+                                        token = new Token(TipoToken.VALINTEIRO, inteiro, numeroLinha);
+                                        posicaoLinha--;
+                                    }
                                 }
-                                lexema += numero;
-                                token = new Token(TipoToken.VALDIGITO, numero, numeroLinha);
-                                posicaoLinha--;
                             }
                             if(isSpecial(c)){
                                 //token = new Token(TipoToken.ERRO, "Palavra não reconhecida", numeroLinha);
